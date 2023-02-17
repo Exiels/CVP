@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  mongodb:
+    image: 'mongo'
+    restart: always
+    ports:
+      - '${DB_PORT}:${DB_PORT}'
+    volumes:
+      - db:/var/lib/mongodb
+
+  server:
+    build: backend
+    ports:
+      - '${EXPRESS_PORT}:${EXPRESS_PORT}'
+    depends_on:
+      - mongodb
+    links:
+      - mongodb
+    environment:
+      - DB_HOST=mongodb
+      - DB_PORT=${DB_PORT}
+      - EXPRESS_PORT=${EXPRESS_PORT}
+      - JWT_SECRET=${JWT_SECRET}
+
+volumes:
+  db:
