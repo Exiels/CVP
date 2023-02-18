@@ -10,7 +10,7 @@ const { dbConnection } = require('./config/db')
  * Start the Node.Js server
  */
 async function startServer () {
-  // Call connection to Database function in the file ./config/db
+  // Call connection to Database
   const dbCo = await dbConnection('cvp')
 
   // Start the server if database connection is good
@@ -25,10 +25,10 @@ async function startServer () {
 
       // Start server
       app.listen(port, () => {
-        console.log(`CVP Backend listening at http://localhost:${port}`)
+        console.log(`INFO: CVP Backend listening at http://localhost:${port}`)
       })
     } catch (error) {
-      console.error('index.js error : ', error)
+      console.error('ERROR: index.js error : ', error)
     }
   }
 }
