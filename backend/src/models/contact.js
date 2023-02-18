@@ -10,23 +10,15 @@ Joi.objectId = require('joi-objectid')(Joi)
 // We create the Schema for contact and we setup the required variables
 
 /**
- * Users schema, containing firstName, lastName, email, password, and role
+ * Contact schema, containing firstName, lastName, address, phone, and email
  * @constructor Contact
  */
 const contactSchema = new Schema({
-  startDate: {
-    type: Date,
-    required: true
-  },
-  endDate: {
-    type: Date,
-    required: true
-  },
-  position: {
+  firstName: {
     type: String,
     required: true
   },
-  company: {
+  lastName: {
     type: String,
     required: true
   },
@@ -34,20 +26,28 @@ const contactSchema = new Schema({
     type: String,
     required: true
   },
+  phone: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
 })
 
-// We create users collection from constactSchema
+// We create contact collection from contactSchema
 const Contact = mongoose.model('contact', contactSchema)
 
 // We check if all required variables are here
 
 const validateContact = (contact) => {
   const schema = Joi.object({
-    startDate: Joi.date().required(),
-    endDate: Joi.date().required(),
-    position: Joi.string().required(),
-    company: Joi.string().required(),
-    address: Joi.string().required()
+    firstName: Joi.string().required(),
+    lastName: Joi.string().required(),
+    address: Joi.string().required(),
+    phone: Joi.string().required(),
+    email: Joi.string().email().required()
   })
   return schema.validate(contact)
 }

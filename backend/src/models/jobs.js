@@ -10,7 +10,7 @@ Joi.objectId = require('joi-objectid')(Joi)
 // We create the Schema for jobs and we setup the required variables
 
 /**
- * Users schema, containing startDate, endDate, position, company, and address
+ * Jobs schema, containing startDate, endDate, position, company, and address
  * @constructor Jobs
  */
 const jobsSchema = new Schema({
@@ -36,7 +36,7 @@ const jobsSchema = new Schema({
   },
 })
 
-// We create users collection from jobsSchema
+// We create jobs collection from jobsSchema
 const Jobs = mongoose.model('jobs', jobsSchema)
 
 // We check if all required variables are here
