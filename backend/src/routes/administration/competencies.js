@@ -20,7 +20,7 @@ const { Competencies, validateCompetencies } = require('../../models/competencie
  */
 exports.getCompetencies = async (req, res) => {
   try {
-    
+    return res.status(200)
   } catch (error) {
     console.error(error)
     return res.status(500).json({ message: 'Internal Server Error' })
@@ -42,7 +42,7 @@ exports.getCompetencies = async (req, res) => {
  */
 exports.postCompetencies = async (req, res) => {
   try {
-    
+    return res.status(201)
   } catch (error) {
     console.error(error)
     return res.status(500).json({ message: 'Internal Server Error' })
@@ -64,7 +64,7 @@ exports.postCompetencies = async (req, res) => {
  */
 exports.deleteCompetencies = async (req, res) => {
   try {
-    
+    return res.status(200)
   } catch (error) {
     console.error(error)
     return res.status(500).json({ message: 'Internal Server Error' })

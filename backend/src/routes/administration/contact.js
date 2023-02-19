@@ -42,7 +42,7 @@ exports.getContact = async (req, res) => {
  */
 exports.patchContact = async (req, res) => {
   try {
-    
+    return res.status(200)
   } catch (error) {
     console.error(error)
     return res.status(500).json({ message: 'Internal Server Error' })
