@@ -5,8 +5,6 @@
 const express = require('express')
 const router = express.Router()
 
-const auth = require('../middleware/auth')
-
 const userRouter = require('./user/router')
 const administrationRouter = require('./administration/router')
 
@@ -15,6 +13,6 @@ const administrationRouter = require('./administration/router')
  * @namespace mainRouter
  */
 router.use('/user', userRouter)
-router.use('/administration', auth, administrationRouter)
+router.use('/administration', administrationRouter)
 
 module.exports = router
