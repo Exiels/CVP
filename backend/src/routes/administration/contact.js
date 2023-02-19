@@ -15,7 +15,7 @@ const { Contact, validateContact } = require('../../models/contact')
  * @param {Object} req
  * @param {Object} res
  * @returns 400 if invalid requests
- * @returns 200 if OK and return all jobs in db
+ * @returns 200 if OK and return all contact in db
  * @returns 500 if Internal Server Error
  */
 exports.getContact = async (req, res) => {
