@@ -5,7 +5,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const Joi = require('joi')
-Joi.objectId = require('joi-objectid')(Joi)
 
 // We create the Schema for contact and we setup the required variables
 

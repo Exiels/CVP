@@ -6,7 +6,6 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const jwt = require('jsonwebtoken')
 const Joi = require('joi')
-Joi.objectId = require('joi-objectid')(Joi)
 
 // We create the Schema for users and we setup the required variables
 
