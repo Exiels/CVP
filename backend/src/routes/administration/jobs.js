@@ -20,7 +20,9 @@ const { Jobs, validateJob } = require('../../models/jobs')
  */
 exports.getJobs = async (req, res) => {
   try {
-    return res.status(200)
+    let jobs = await Jobs.find()
+
+    return res.status(200).json({jobs})
   } catch (error) {
     console.error(error)
     return res.status(500).json({ message: 'Internal Server Error' })
@@ -42,7 +44,12 @@ exports.getJobs = async (req, res) => {
  */
 exports.postJobs = async (req, res) => {
   try {
-    return res.status(201)
+    const { error } = validateJob(req.body)
+    if (error) { return res.status(400).send(error.details[0].message)}
+    
+    const job = new Jobs(req.body)
+    await job.save();
+    return res.status(201).json({ message: 'OK'})
   } catch (error) {
     console.error(error)
     return res.status(500).json({ message: 'Internal Server Error' })
@@ -64,7 +71,14 @@ exports.postJobs = async (req, res) => {
  */
 exports.deleteJobs = async (req, res) => {
   try {
-    return res.status(200)
+    const job = await Jobs.findById(req.body.id)
+
+    if (job === undefined || job.length === 0)
+      return res.status(404).json({ message: 'Job not found' })
+    else {
+      await Jobs.findByIdAndRemove(req.body.id)
+    }
+    return res.status(200).json({ message: 'OK' })
   } catch (error) {
     console.error(error)
     return res.status(500).json({ message: 'Internal Server Error' })
