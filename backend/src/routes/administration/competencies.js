@@ -20,7 +20,9 @@ const { Competencies, validateCompetencies } = require('../../models/competencie
  */
 exports.getCompetencies = async (req, res) => {
   try {
-    return res.status(200)
+    let competencies = await Competencies.find()
+
+    return res.status(200).json({competencies})
   } catch (error) {
     console.error(error)
     return res.status(500).json({ message: 'Internal Server Error' })
@@ -42,7 +44,12 @@ exports.getCompetencies = async (req, res) => {
  */
 exports.postCompetencies = async (req, res) => {
   try {
-    return res.status(201)
+    const { error } = validateCompetencies(req.body)
+    if (error) { return res.status(400).send(error.details[0].message)}
+    
+    const competence = new Competencies(req.body)
+    await competence.save();
+    return res.status(201).json({ message: 'OK'})
   } catch (error) {
     console.error(error)
     return res.status(500).json({ message: 'Internal Server Error' })
@@ -64,7 +71,14 @@ exports.postCompetencies = async (req, res) => {
  */
 exports.deleteCompetencies = async (req, res) => {
   try {
-    return res.status(200)
+    const competence = await Competencies.findById(req.body.id)
+
+    if (competence === undefined || competence.length === 0)
+      return res.status(404).json({ message: 'Competence not found' })
+    else {
+      await Competencies.findByIdAndRemove(req.body.id)
+    }
+    return res.status(200).json({ message: 'OK' })
   } catch (error) {
     console.error(error)
     return res.status(500).json({ message: 'Internal Server Error' })
