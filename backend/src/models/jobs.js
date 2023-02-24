@@ -42,8 +42,8 @@ const Jobs = mongoose.model('jobs', jobsSchema)
 
 const validateJob = (job) => {
   const schema = Joi.object({
-    startDate: Joi.date().required(),
-    endDate: Joi.date().required(),
+    startDate: Joi.date().iso().required(),
+    endDate: Joi.date().iso().required(),
     position: Joi.string().required(),
     company: Joi.string().required(),
     address: Joi.string().required()
