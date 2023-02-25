@@ -14,7 +14,6 @@ const { Competencies, validateCompetencies } = require('../../models/competencie
  * @async
  * @param {Object} req
  * @param {Object} res
- * @returns 400 if invalid requests
  * @returns 200 if OK and return all competencies in db
  * @returns 500 if Internal Server Error
  */
@@ -39,7 +38,7 @@ exports.getCompetencies = async (req, res) => {
  * @param {Object} req
  * @param {Object} res
  * @returns 400 if invalid requests
- * @returns 200 if OK
+ * @returns 201 if OK
  * @returns 500 if Internal Server Error
  */
 exports.postCompetencies = async (req, res) => {
@@ -65,7 +64,7 @@ exports.postCompetencies = async (req, res) => {
  * @async
  * @param {Object} req
  * @param {Object} res
- * @returns 400 if invalid requests
+ * @returns 404 if invalid requests
  * @returns 200 if OK
  * @returns 500 if Internal Server Error
  */
