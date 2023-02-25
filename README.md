@@ -19,6 +19,8 @@ To run this project, you will need to add the following environment variables to
 
 `JWT_SECRET` example : `JWT_SECRET=key`
 
+`GHTOKEN` example : `GHTOKEN=token`
+
 
 ## Deployment
 
