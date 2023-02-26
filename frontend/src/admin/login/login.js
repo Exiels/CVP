@@ -7,7 +7,7 @@ export default function Login() {
     const [password, setPassword] = useState('')
     const [message, setMessage] = useState('')
     let [remember, setRemember] = useState('false')
-    const loginURL = "http://" + process.env.BACKEND_HOST + ":" + process.env.EXPRESS_PORT + "/user/login"
+    const loginURL = "http://localhost:8080/user/login"
     let navigate = useNavigate()
 
     //post request to get token
@@ -30,7 +30,7 @@ export default function Login() {
                 if (remember)
                     localStorage.setItem("token", data.token)
                 sessionStorage.setItem("token", data.token)
-                navigate('/home')
+                navigate('/admin/home')
             } else {
                 setMessage("Error: " + data.message)
             }
