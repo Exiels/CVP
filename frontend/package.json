@@ -1,7 +1,6 @@
 {
-  "name": "frontend-cvp",
-  "version": "1.0.0",
-  "description": "Frontend for the HUB Project CVP by Exiels",
+  "name": "frontend",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -10,7 +9,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1",
-    "react-scripts": "^5.0.1",
+    "react-scripts": "5.0.1",
     "sass": "^1.58.3",
     "web-vitals": "^2.1.4"
   },
@@ -37,15 +36,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Exiels/CVP.git"
-  },
-  "author": "Exiels",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Exiels/CVP/issues"
-  },
-  "homepage": "https://github.com/Exiels/CVP#readme"
+  }
 }
