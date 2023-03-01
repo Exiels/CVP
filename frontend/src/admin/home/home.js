@@ -29,6 +29,7 @@ export default function Home() {
         }
         checkLogin()
     }, [])
+    
     return (
         <div>
             <div>
