@@ -55,7 +55,7 @@ export default function Login() {
 
     const checkRemember = () => {
         const token = localStorage.getItem("token");
-        if (token !== undefined) {
+        if (token !== undefined && token !== null) {
             sessionStorage.setItem("token", token)
             navigate('/admin')
         }
