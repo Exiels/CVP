@@ -1,4 +1,4 @@
-import {useState} from "react"
+import {useState, useLayoutEffect, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import './login.scss'
 
@@ -30,7 +30,7 @@ export default function Login() {
                 if (remember)
                     localStorage.setItem("token", data.token)
                 sessionStorage.setItem("token", data.token)
-                navigate('/admin/home')
+                navigate('/admin')
             } else {
                 setMessage("Error: " + data.message)
             }
@@ -52,6 +52,18 @@ export default function Login() {
     const changeRemember = (event) => {
         setRemember(event.target.value)
     }
+
+    const checkRemember = () => {
+        const token = localStorage.getItem("token");
+        if (token !== undefined) {
+            sessionStorage.setItem("token", token)
+            navigate('/admin')
+        }
+    }
+
+    useEffect(() => {
+        checkRemember();
+    })
 
     return (
         <div className="loginPage">

@@ -1,6 +1,6 @@
 import {useState} from "react"
 import { useNavigate } from "react-router-dom"
-import Header from "../../components/header/header"
+import Header from "../../components/header/user/header"
 import './competencies.scss'
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
             <div>
                 <Header />
             </div>
-            <div>
+            <div id={"mainDiv"}>
                 <p>Competencies page</p>
             </div>
         </div>

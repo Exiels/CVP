@@ -1,5 +1,5 @@
 import HomeIcon from '@mui/icons-material/Home';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import WorkIcon from '@mui/icons-material/Work';
 import ContactsIcon from '@mui/icons-material/Contacts';
 import EngineeringIcon from '@mui/icons-material/Engineering';
@@ -8,6 +8,7 @@ import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from './header.jsx';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
+import withRouter from './withRouter';
 
 const navWidthCollapsed = 64;
 const navWidthExpanded = 280;
@@ -25,7 +26,8 @@ const Main = styled.main`
     transition: background-color .35s cubic-bezier(.4, 0, .2, 1);
 `;
 
-export default class extends PureComponent {
+class header extends PureComponent {
+    
     state = {
         selected: 'home',
         expanded: false
@@ -34,17 +36,18 @@ export default class extends PureComponent {
     lastUpdateTime = new Date().toISOString();
 
     onSelect = (selected) => {
+        const { navigate } = this.props;
         this.setState({ selected: selected });
         if (selected === "home")
-          useNavigate('/')
+            navigate('/')
         else if (selected === "projects")
-          useNavigate('/projects')
+            navigate('/projects')
         else if (selected === "jobs")
-          useNavigate('/jobs')
+            navigate('/jobs')
         else if (selected === "competencies")
-         useNavigate('/competencies')
+            navigate('/competencies')
         else if (selected === "contact")
-          useNavigate('/contact')
+            navigate('/contact')
     };
     onToggle = (expanded) => {
         this.setState({ expanded: expanded });
@@ -120,3 +123,5 @@ export default class extends PureComponent {
         );
     }
 }
+
+export default withRouter(header)
