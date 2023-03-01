@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    font: georgia;
+  }
+  
+  #Login-page {
+    display: inline-block;
+  }
+  
+  #background-part {
+    height: 100vh;
+    top: 0;
+    background-image: linear-gradient(to bottom, rgb(79, 35, 226), rgb(255, 210, 213));
+    background-size: cover;
+    width: 70%;
+    float: left;
+    #childrenImg {
+      display: block;
+      margin: 0 auto;
+      width: 80%;
+      height: 80%;
+      align-self: center;
+      float: center;
+    }
+  }
+  
+  #login-part {
+    background-color: white;
+    text-align: center;
+    float: right;
+    height: 100vh;
+    top: 0;
+    width: 30%;
+    #schoodLogo {
+      display: block;
+      margin: 0 auto;
+      width: 90%;
+      height: 30%;
+    }
+    #userInput {
+      font-size: large;
+      margin-top: 10px;
+      width: 80%;
+      height: 8vh;
+      background-color: rgb(230,230,230);
+      border: 0;
+    }
+    #passInput {
+      font-size: large;
+      margin-top: 10px;
+      width: 80%;
+      height: 8vh;
+      background-color: rgb(230,230,230);
+      border: 0;
+    }
+    #rememberLabel {
+      color: rgb(192,192,192);
+      margin-top: 10px;
+      margin-left: 10%;
+      float: left;
+    }
+    #rememberCheckbox {
+      float: left;
+    }
+    #login-button {
+      font-weight: 500;
+      font-size: large;
+      margin-top: 10px;
+      width: 80%;
+      height: 8vh;
+      background-color: rgb(79, 35, 226);
+      color: white;
+      border: 0;
+    }
+    #errorMessage {
+      margin-top: 10px;
+      color: red;
+    }
+    #signUpRedirect {
+      position: bottom;
+      color: rgb(192,192,192);
+    }
+  }
+  
