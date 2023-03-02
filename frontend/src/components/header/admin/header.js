@@ -3,7 +3,8 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import WorkIcon from '@mui/icons-material/Work';
 import ContactsIcon from '@mui/icons-material/Contacts';
 import EngineeringIcon from '@mui/icons-material/Engineering';
-import DescriptionIcon from '@mui/icons-material/Description';
+import PersonIcon from '@mui/icons-material/Person';
+import SettingsIcon from '@mui/icons-material/Settings';
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from './header.jsx';
@@ -12,6 +13,14 @@ import withRouter from './withRouter';
 
 const navWidthCollapsed = 64;
 const navWidthExpanded = 280;
+
+const Separator = styled.div`
+    clear: both;
+    position: relative;
+    margin: .8rem 0;
+    background-color: #ddd;
+    height: 1px;
+`;
 
 const Main = styled.main`
     position: absolute;
@@ -39,30 +48,35 @@ class header extends PureComponent {
         const { navigate } = this.props;
         this.setState({ selected: selected });
         if (selected === "home")
+            navigate('/admin')
+        else if (selected === "settings/user")
+            navigate('/admin/settings/user')
+        else if (selected === "settings/jobs")
+            navigate('/admin/settings/jobs')
+        else if (selected === "settings/competencies")
+            navigate('/admin/settings/competencies')
+        else if (selected === "settings/contact")
+            navigate('/admin/settings/contact')
+        else if (selected === "logout") {
+            sessionStorage.removeItem("token")
+            localStorage.removeItem("token")
             navigate('/')
-        else if (selected === "projects")
-            navigate('/projects')
-        else if (selected === "jobs")
-            navigate('/jobs')
-        else if (selected === "competencies")
-            navigate('/competencies')
-        else if (selected === "contact")
-            navigate('/contact')
+        }
     };
     onToggle = (expanded) => {
         this.setState({ expanded: expanded });
     };
     setSelected = (selected) => {  
-      if (window.location.pathname === '/home')
-        selected = 'home'
-      else if (window.location.pathname === '/projects')
-        selected = 'projects'
-      else if (window.location.pathname === '/jobs')
-        selected = 'jobs'
-      else if (window.location.pathname === '/competencies')
-        selected = 'competencies'
-      else if (window.location.pathname === '/contact')
-        selected = 'contact'
+      if (window.location.pathname === '/admin')
+        return("home")
+      else if (window.location.pathname === '/admin/settings/user')
+        return("settings/user")
+      else if (window.location.pathname === '/admin/settings/jobs')
+        return("settings/jobs")
+      else if (window.location.pathname === '/admin/settings/competencies')
+        return("settings/competencies")
+      else if (window.location.pathname === '/admin/settings/contact')
+        return("settings/contact")
     }
     
     render() {
@@ -77,7 +91,7 @@ class header extends PureComponent {
                 >
                     <Toggle />
                     <Nav
-                        defaultSelected={selected}
+                        defaultSelected={this.setSelected()}
                     >
                         <NavItem eventKey="home">
                             <NavIcon>
@@ -87,32 +101,53 @@ class header extends PureComponent {
                                 Home
                             </NavText>
                         </NavItem>
-                        <NavItem eventKey="projects">
+                        <NavItem eventKey="settings">
                             <NavIcon>
-                                <DescriptionIcon style={{ fontSize: '1.75em', verticalAlign: 'middle' }}></DescriptionIcon>                            </NavIcon>
-                            <NavText style={{ paddingRight: 32 }} title="projects">
-                                Projects
+                                <SettingsIcon style={{ fontSize: '1.75em', verticalAlign: 'middle' }}></SettingsIcon>
+                            </NavIcon>
+                            <NavText style={{ paddingRight: 32 }} title="settings">
+                                Settings
                             </NavText>
+                            <NavItem eventKey="settings/user">
+                                <NavIcon>
+                                    <PersonIcon style={{ fontSize: '1.75em', verticalAlign: 'middle' }}></PersonIcon>
+                                </NavIcon>
+                                <NavText style={{ paddingRight: 32 }} title="user">
+                                    User
+                                </NavText>
+                            </NavItem>
+                            <NavItem eventKey="settings/jobs">
+                                <NavIcon>
+                                    <WorkIcon style={{ fontSize: '1.75em', verticalAlign: 'middle' }}></WorkIcon>
+                                </NavIcon>
+                                <NavText style={{ paddingRight: 32 }} title="jobs">
+                                    Jobs
+                                </NavText>
+                            </NavItem>
+                            <NavItem eventKey="settings/competencies">
+                                <NavIcon>
+                                    <EngineeringIcon style={{ fontSize: '1.75em', verticalAlign: 'middle' }}></EngineeringIcon>
+                                </NavIcon>
+                                <NavText style={{ paddingRight: 32 }} title="competencies">
+                                    Competencies
+                                </NavText>
+                            </NavItem>
+                            <NavItem eventKey="settings/contact">
+                                <NavIcon>
+                                    <ContactsIcon style={{ fontSize: '1.75em', verticalAlign: 'middle' }}></ContactsIcon>
+                                </NavIcon>
+                                <NavText style={{ paddingRight: 32 }} title="contact">
+                                    Contact
+                                </NavText>
+                            </NavItem>
                         </NavItem>
-                        <NavItem eventKey="jobs">
+                        <Separator />
+                        <NavItem eventKey="logout">
                             <NavIcon>
-                                <WorkIcon style={{ fontSize: '1.75em', verticalAlign: 'middle' }}></WorkIcon>                            </NavIcon>
-                            <NavText style={{ paddingRight: 32 }} title="jobs">
-                                Jobs
-                            </NavText>
-                        </NavItem>
-                        <NavItem eventKey="competencies">
-                            <NavIcon>
-                                <EngineeringIcon style={{ fontSize: '1.75em', verticalAlign: 'middle' }}></EngineeringIcon>                            </NavIcon>
-                            <NavText style={{ paddingRight: 32 }} title="competencies">
-                                Competencies
-                            </NavText>
-                        </NavItem>
-                        <NavItem eventKey="contact">
-                            <NavIcon>
-                                <ContactsIcon style={{ fontSize: '1.75em', verticalAlign: 'middle' }}></ContactsIcon>                            </NavIcon>
-                            <NavText style={{ paddingRight: 32 }} title="contact">
-                                Contact
+                                <i className="fa fa-fw fa-power-off" style={{ fontSize: '1.5em' }} />
+                            </NavIcon>
+                            <NavText style={{ paddingRight: 32 }} title="SIGN OUT">
+                                SIGN OUT
                             </NavText>
                         </NavItem>
                     </Nav>
