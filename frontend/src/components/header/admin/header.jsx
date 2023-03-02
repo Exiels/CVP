@@ -6,6 +6,7 @@ import SideNav, {
     NavIcon,
     NavText
 } from '@trendmicro/react-sidenav';
+import "@fontsource/titillium-web"
 
 // SideNav
 const StyledSideNav = styled(SideNav)`
@@ -22,12 +23,21 @@ StyledToggle.defaultProps = Toggle.defaultProps;
 
 // Nav
 const StyledNav = styled(Nav)`  
+    [class*="sidenav--"] {
+        [class*="sidenav-subnav--"] {
+            > [class*="sidenav-subnavitem--"][class*="selected--"] {
+                > [class*="navitem--"] {
+                    color: #fac921;
+                }
+            }
+        }
+    }
     &&[class*="expanded--"] {
         [class*="sidenav-subnav--"] {
             > [class*="sidenav-subnavitem--"],
             > [class*="sidenav-subnavitem--"]:hover {
                 > [class*="navitem--"] {
-                    color: #222;
+                    color: #eee;
                 }
             }
             > [class*="sidenav-subnavitem--"]:hover {
@@ -81,7 +91,7 @@ const StyledNav = styled(Nav)`
                 }
             }
             [class*="sidenav-nav-text--"] {
-                font-weight: 700;
+                font-weight: 900;
             }
         }
     }
@@ -90,9 +100,14 @@ StyledNav.defaultProps = Nav.defaultProps;
 
 // NavItem
 const StyledNavItem = styled(NavItem)`
+    * {
+        font-family: "Titillium Web";
+        font-weight: 800;
+    }
     &&&:hover {
         [class*="navtext--"] {
             color: #fac921;
+            font-family: "Titillium Web";
         }
     }
 `;

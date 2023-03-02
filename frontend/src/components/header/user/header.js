@@ -52,22 +52,23 @@ class header extends PureComponent {
     onToggle = (expanded) => {
         this.setState({ expanded: expanded });
     };
-    setSelected = (selected) => {  
-      if (window.location.pathname === '/home')
-        selected = 'home'
+    setSelected = () => {  
+      if (window.location.pathname === '/')
+        return("home")
       else if (window.location.pathname === '/projects')
-        selected = 'projects'
+        return("projects")
       else if (window.location.pathname === '/jobs')
-        selected = 'jobs'
+        return("jobs")
       else if (window.location.pathname === '/competencies')
-        selected = 'competencies'
+        return("competencies");
       else if (window.location.pathname === '/contact')
-        selected = 'contact'
+        return("contact")
     }
+
     
     render() {
+        this.setSelected()
         const { expanded, selected } = this.state;
-        this.setSelected(selected)
         return (
             <div>
                 <SideNav
@@ -77,7 +78,7 @@ class header extends PureComponent {
                 >
                     <Toggle />
                     <Nav
-                        defaultSelected={selected}
+                        defaultSelected={this.setSelected()}
                     >
                         <NavItem eventKey="home">
                             <NavIcon>

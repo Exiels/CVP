@@ -26,7 +26,8 @@ async function startServer () {
   if (dbCo) {
     try {
       // Setup express and cors
-      app.use(limiter)
+      // TODO: Uncomment limiter
+      //app.use(limiter)
       app.use(express.json())
       app.use(cors({ 
         credentials: true,
