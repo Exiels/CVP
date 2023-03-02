@@ -66,7 +66,7 @@ class header extends PureComponent {
     onToggle = (expanded) => {
         this.setState({ expanded: expanded });
     };
-    setSelected = (selected) => {  
+    setSelected = () => {  
       if (window.location.pathname === '/admin')
         return("home")
       else if (window.location.pathname === '/admin/settings/user')
@@ -81,7 +81,6 @@ class header extends PureComponent {
     
     render() {
         const { expanded, selected } = this.state;
-        this.setSelected(selected)
         return (
             <div>
                 <SideNav
