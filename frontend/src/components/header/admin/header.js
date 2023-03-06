@@ -5,6 +5,7 @@ import ContactsIcon from '@mui/icons-material/Contacts';
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import PersonIcon from '@mui/icons-material/Person';
 import SettingsIcon from '@mui/icons-material/Settings';
+import LogoutIcon from '@mui/icons-material/Logout';
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from './header.jsx';
@@ -66,7 +67,7 @@ class header extends PureComponent {
     onToggle = (expanded) => {
         this.setState({ expanded: expanded });
     };
-    setSelected = (selected) => {  
+    setSelected = () => {  
       if (window.location.pathname === '/admin')
         return("home")
       else if (window.location.pathname === '/admin/settings/user')
@@ -81,7 +82,6 @@ class header extends PureComponent {
     
     render() {
         const { expanded, selected } = this.state;
-        this.setSelected(selected)
         return (
             <div>
                 <SideNav
@@ -144,7 +144,7 @@ class header extends PureComponent {
                         <Separator />
                         <NavItem eventKey="logout">
                             <NavIcon>
-                                <i className="fa fa-fw fa-power-off" style={{ fontSize: '1.5em' }} />
+                                <LogoutIcon style={{ fontSize: '1.75em', verticalAlign: 'middle'  }}></LogoutIcon>
                             </NavIcon>
                             <NavText style={{ paddingRight: 32 }} title="SIGN OUT">
                                 SIGN OUT

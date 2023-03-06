@@ -4,6 +4,7 @@
  * @namespace login
  */
 const { Users, validateUser } = require('../../models/users')
+const bcrypt = require('bcryptjs');
 
 /**
  * Main login function
@@ -32,9 +33,11 @@ module.exports = async (req, res) => {
     }
 
     // Check password
-    if (user.password !== req.body.password) {
-      return res.status(401).json({ message: 'Invalid username or password' })
-    }
+
+    bcrypt.compare(req.body.password, user.password).then(valid => {
+      if (!valid)
+        return res.status(401).json({ message: 'Invalid username or password' })
+    })
 
     // Generate AuthToken
     const token = user.generateAuthToken()

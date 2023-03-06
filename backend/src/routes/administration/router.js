@@ -7,6 +7,7 @@ const competencies = require('./competencies')
 const contact = require('./contact')
 const github = require('./github')
 const jobs = require('./jobs')
+const user = require('./user')
 
 /**
  * Administration router connection
@@ -27,5 +28,8 @@ router.get('/github', github.getRepos)
 router.get('/jobs', jobs.getJobs)
 router.post('/jobs', auth, jobs.postJobs)
 router.delete('/jobs', auth, jobs.deleteJobs)
+
+router.get('/user', user.getUser)
+router.patch('/user', auth, user.patchUser)
 
 module.exports = router
