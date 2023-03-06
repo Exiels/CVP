@@ -1,16 +1,19 @@
 import HomeIcon from '@mui/icons-material/Home';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { compose } from 'redux'
+import { setLanguage } from 'react-multi-lang'
 import WorkIcon from '@mui/icons-material/Work';
 import ContactsIcon from '@mui/icons-material/Contacts';
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import PersonIcon from '@mui/icons-material/Person';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
+import FlagIcon from '@mui/icons-material/Flag';
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from './header.jsx';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import withRouter from './withRouter';
+import withTranslate from './withTranslate.js';
 
 const navWidthCollapsed = 64;
 const navWidthExpanded = 280;
@@ -58,6 +61,10 @@ class header extends PureComponent {
             navigate('/admin/settings/competencies')
         else if (selected === "settings/contact")
             navigate('/admin/settings/contact')
+        else if (selected === "language/french")
+            setLanguage('fr')
+        else if (selected === "language/english")
+            setLanguage('en')
         else if (selected === "logout") {
             sessionStorage.removeItem("token")
             localStorage.removeItem("token")
@@ -82,6 +89,7 @@ class header extends PureComponent {
     
     render() {
         const { expanded, selected } = this.state;
+        const { t } = this.props;
         return (
             <div>
                 <SideNav
@@ -98,7 +106,7 @@ class header extends PureComponent {
                                 <HomeIcon style={{ fontSize: '1.75em', verticalAlign: 'middle' }}></HomeIcon>
                             </NavIcon>
                             <NavText style={{ paddingRight: 32 }} title="home">
-                                Home
+                                {t('header.home')}
                             </NavText>
                         </NavItem>
                         <NavItem eventKey="settings">
@@ -106,14 +114,14 @@ class header extends PureComponent {
                                 <SettingsIcon style={{ fontSize: '1.75em', verticalAlign: 'middle' }}></SettingsIcon>
                             </NavIcon>
                             <NavText style={{ paddingRight: 32 }} title="settings">
-                                Settings
+                                {t('header.admin.settings')}
                             </NavText>
                             <NavItem eventKey="settings/user">
                                 <NavIcon>
                                     <PersonIcon style={{ fontSize: '1.75em', verticalAlign: 'middle' }}></PersonIcon>
                                 </NavIcon>
                                 <NavText style={{ paddingRight: 32 }} title="user">
-                                    User
+                                    {t('header.admin.user')}
                                 </NavText>
                             </NavItem>
                             <NavItem eventKey="settings/jobs">
@@ -121,7 +129,7 @@ class header extends PureComponent {
                                     <WorkIcon style={{ fontSize: '1.75em', verticalAlign: 'middle' }}></WorkIcon>
                                 </NavIcon>
                                 <NavText style={{ paddingRight: 32 }} title="jobs">
-                                    Jobs
+                                    {t('header.jobs')}
                                 </NavText>
                             </NavItem>
                             <NavItem eventKey="settings/competencies">
@@ -129,7 +137,7 @@ class header extends PureComponent {
                                     <EngineeringIcon style={{ fontSize: '1.75em', verticalAlign: 'middle' }}></EngineeringIcon>
                                 </NavIcon>
                                 <NavText style={{ paddingRight: 32 }} title="competencies">
-                                    Competencies
+                                    {t('header.competencies')}
                                 </NavText>
                             </NavItem>
                             <NavItem eventKey="settings/contact">
@@ -137,7 +145,26 @@ class header extends PureComponent {
                                     <ContactsIcon style={{ fontSize: '1.75em', verticalAlign: 'middle' }}></ContactsIcon>
                                 </NavIcon>
                                 <NavText style={{ paddingRight: 32 }} title="contact">
-                                    Contact
+                                    {t('header.contact')}
+                                </NavText>
+                            </NavItem>
+                        </NavItem>
+                        <Separator />
+                        <NavItem eventKey="language">
+                            <NavIcon>
+                                <FlagIcon style={{ fontSize: '1.75em', verticalAlign: 'middle' }}></FlagIcon>
+                            </NavIcon>
+                            <NavText style={{ paddingRight: 32 }} title="language">
+                                {t('header.language.language')}
+                            </NavText>
+                            <NavItem eventKey="language/french">
+                                <NavText style={{ paddingRight: 32 }} title="french">
+                                    {t('header.language.french')}
+                                </NavText>
+                            </NavItem>
+                            <NavItem eventKey="language/english">
+                                <NavText style={{ paddingRight: 32 }} title="english">
+                                    {t('header.language.english')}
                                 </NavText>
                             </NavItem>
                         </NavItem>
@@ -147,7 +174,7 @@ class header extends PureComponent {
                                 <LogoutIcon style={{ fontSize: '1.75em', verticalAlign: 'middle'  }}></LogoutIcon>
                             </NavIcon>
                             <NavText style={{ paddingRight: 32 }} title="SIGN OUT">
-                                SIGN OUT
+                                {t('header.admin.sign-out')}
                             </NavText>
                         </NavItem>
                     </Nav>
@@ -159,4 +186,4 @@ class header extends PureComponent {
     }
 }
 
-export default withRouter(header)
+export default compose(withRouter, withTranslate)(header)

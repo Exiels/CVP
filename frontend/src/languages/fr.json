@@ -1,0 +1,54 @@
+{
+    "header": {
+        "home": "Accueil",
+        "projects": "Projets",
+        "jobs": "Emplois",
+        "competencies": "Compétences",
+        "contact": "Contact",
+        "language": {
+            "language": "Languages",
+            "french": "Français",
+            "english": "Anglais"
+        },
+
+        "admin": {
+            "settings": "Paramètres",
+            "user": "Utilisateur",
+            "sign-out": "Déconnexion"
+        }
+    },
+    "user": {
+        "home":  {
+            "title": "Page d'Accueil"
+        },
+        "projects":  {
+            "title": "Page des Projets"
+        },
+        "jobs":  {
+            "title": "Page des Emplois"
+        },
+        "contact":  {
+            "title": "Page des informations de Contact"
+        },
+        "competencies":  {
+            "title": "Page des Compétences"
+        }
+    },
+    "admin": {
+        "home":  {
+            "title": "Page d'Accueil Admin"
+        },
+        "user":  {
+            "title": "Page Utilisateur Admin"
+        },
+        "jobs":  {
+            "title": "Page des Emplois Admin"
+        },
+        "contact":  {
+            "title": "Page des informations de Contact Admin"
+        },
+        "competencies":  {
+            "title": "Page des Compétences Admin"
+        }
+    }
+}

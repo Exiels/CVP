@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-multi-lang'
 import {useState, useLayoutEffect} from "react"
 import Header from "../../components/header/user/header"
 import './jobs.scss'
 
 export default function Jobs() {
     const [jobsList, setJobsList] = useState([]);
+    const t = useTranslation()
 
     useLayoutEffect(() => {
         async function getJobs() {
@@ -29,7 +31,7 @@ export default function Jobs() {
                 <Header />
             </div>
             <div id={"mainDiv"}>
-                <p>Jobs page</p>
+                <p>{t('user.jobs.title')}</p>
                 <div id="jobsListDiv">
                     {
                         jobsList.map((data, index) =>

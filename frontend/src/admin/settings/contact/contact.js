@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-multi-lang'
 import {useEffect, useLayoutEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Header from "../../../components/header/admin/header"
@@ -10,6 +11,7 @@ export default function Contact() {
     const [contactPhone, setContactPhone] = useState('');
     const [contactEmail, setContactEmail] = useState('');
     let navigate = useNavigate()
+    const t = useTranslation()
 
     useLayoutEffect(() => {
         async function checkLogin() {
@@ -98,7 +100,7 @@ export default function Contact() {
                 <Header />
             </div>
             <div id={"mainDiv"}>
-                <p>Admin Contact page</p>
+                <p>{t('admin.contact.title')}</p>
                 <div id={"jobsDiv"}>
                     <div id="jobsAdderDiv">
                         <form>

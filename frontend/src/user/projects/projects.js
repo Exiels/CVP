@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-multi-lang'
 import {useState, useLayoutEffect} from "react"
 import Header from "../../components/header/user/header"
 import './projects.scss'
 
 export default function Projects() {
     const [projectsList, setProjectsList] = useState([]);
+    const t = useTranslation()
 
     useLayoutEffect(() => {
         async function getProjects() {
@@ -29,7 +31,7 @@ export default function Projects() {
                 <Header />
             </div>
             <div id={"mainDiv"}>
-                <p>Projects page</p>
+                <p>{t('user.projects.title')}</p>
                 <div id="projectListDiv">
                     {
                         projectsList.map((data, index) =>

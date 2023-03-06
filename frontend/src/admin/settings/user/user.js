@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-multi-lang'
 import {useEffect, useLayoutEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Header from "../../../components/header/admin/header"
@@ -7,6 +8,7 @@ export default function User() {
     const [userUsername, setUserUsername] = useState('');
     const [userPassword, setUserPassword] = useState('');
     let navigate = useNavigate()
+    const t = useTranslation()
 
     useLayoutEffect(() => {
         async function checkLogin() {
@@ -76,7 +78,7 @@ export default function User() {
                 <Header />
             </div>
             <div id={"mainDiv"}>
-                <p>Admin User page</p>
+                <p>{t('admin.user.title')}</p>
                 <div id={"jobsDiv"}>
                     <div id="jobsAdderDiv">
                         <form>

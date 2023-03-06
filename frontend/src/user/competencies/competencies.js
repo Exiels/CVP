@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-multi-lang'
 import {useState, useLayoutEffect} from "react"
 import Header from "../../components/header/user/header"
 import './competencies.scss'
 
 export default function Competencies() {
     const [competenciesList, setCompetenciesList] = useState([]);
+    const t = useTranslation()
 
     useLayoutEffect(() => {
         async function getCompetencies() {
@@ -29,7 +31,7 @@ export default function Competencies() {
                 <Header />
             </div>
             <div id={"mainDiv"}>
-                <p>Competencies page</p>
+                <p>{t('user.competencies.title')}</p>
                 <div id="competenciesListDiv">
                     {
                         competenciesList.map((data, index) =>

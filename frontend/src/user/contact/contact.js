@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-multi-lang'
 import {useState, useLayoutEffect} from "react"
 import Header from "../../components/header/user/header"
 import './contact.scss'
@@ -8,6 +9,7 @@ export default function Contact() {
     const [contactAddress, setContactAddress] = useState('');
     const [contactPhone, setContactPhone] = useState('');
     const [contactEmail, setContactEmail] = useState('');
+    const t = useTranslation()
 
     useLayoutEffect(() => {
         async function getContact() {
@@ -33,7 +35,7 @@ export default function Contact() {
                 <Header />
             </div>
             <div id={"mainDiv"}>
-                <p>Contact page</p>
+                <p>{t('user.contact.title')}</p>
                 <div id="contactDiv">
                     <p>{contactFirstName} {contactLastName}</p>
                     <p>Address: {contactAddress}</p>

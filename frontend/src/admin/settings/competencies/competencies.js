@@ -1,5 +1,6 @@
 import {useEffect, useLayoutEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { useTranslation } from 'react-multi-lang'
 import Header from "../../../components/header/admin/header"
 import Table from 'react-bootstrap/Table';
 import './competencies.scss'
@@ -9,6 +10,7 @@ export default function Home() {
     const [competenceName, setCompetenceName] = useState('');
     const [competenceLevel, setCompetenceLevel] = useState('');
     let navigate = useNavigate()
+    const t = useTranslation()
 
     useLayoutEffect(() => {
         async function checkLogin() {
@@ -94,7 +96,7 @@ export default function Home() {
                 <Header />
             </div>
             <div id={"mainDiv"}>
-                <p>Admin Competencies page</p>
+                <p>{t('admin.competencies.title')}</p>
                 <div id={"competenciesDiv"}>
                     <div id="competenciesAdderDiv">
                         <form>

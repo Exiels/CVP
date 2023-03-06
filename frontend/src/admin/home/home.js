@@ -1,9 +1,11 @@
 import {useLayoutEffect} from "react"
 import { useNavigate } from "react-router-dom"
+import { useTranslation } from 'react-multi-lang'
 import Header from "../../components/header/admin/header"
 import './home.scss'
 
 export default function Home() {
+    const t = useTranslation()
     let navigate = useNavigate()
 
     useLayoutEffect(() => {
@@ -36,7 +38,7 @@ export default function Home() {
                 <Header />
             </div>
             <div id={"mainDiv"}>
-                <p>Admin Home page</p>
+                <p>{t('admin.home.title')}</p>
             </div>
         </div>
     )

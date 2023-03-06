@@ -1,17 +1,28 @@
 import HomeIcon from '@mui/icons-material/Home';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { compose } from 'redux'
+import { setLanguage } from 'react-multi-lang'
 import WorkIcon from '@mui/icons-material/Work';
 import ContactsIcon from '@mui/icons-material/Contacts';
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import DescriptionIcon from '@mui/icons-material/Description';
+import FlagIcon from '@mui/icons-material/Flag';
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from './header.jsx';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import withRouter from './withRouter';
+import withTranslate from './withTranslate.js';
 
 const navWidthCollapsed = 64;
 const navWidthExpanded = 280;
+
+const Separator = styled.div`
+    clear: both;
+    position: relative;
+    margin: .8rem 0;
+    background-color: #ddd;
+    height: 1px;
+`;
 
 const Main = styled.main`
     position: absolute;
@@ -48,6 +59,10 @@ class header extends PureComponent {
             navigate('/competencies')
         else if (selected === "contact")
             navigate('/contact')
+        else if (selected === "language/french")
+            setLanguage('fr')
+        else if (selected === "language/english")
+            setLanguage('en')
     };
     onToggle = (expanded) => {
         this.setState({ expanded: expanded });
@@ -69,6 +84,7 @@ class header extends PureComponent {
     render() {
         this.setSelected()
         const { expanded, selected } = this.state;
+        const { t } = this.props
         return (
             <div>
                 <SideNav
@@ -85,36 +101,55 @@ class header extends PureComponent {
                                 <HomeIcon style={{ fontSize: '1.75em', verticalAlign: 'middle' }}></HomeIcon>
                             </NavIcon>
                             <NavText style={{ paddingRight: 32 }} title="home">
-                                Home
+                                {t('header.home')}
                             </NavText>
                         </NavItem>
                         <NavItem eventKey="projects">
                             <NavIcon>
                                 <DescriptionIcon style={{ fontSize: '1.75em', verticalAlign: 'middle' }}></DescriptionIcon>                            </NavIcon>
                             <NavText style={{ paddingRight: 32 }} title="projects">
-                                Projects
+                                {t('header.projects')}
                             </NavText>
                         </NavItem>
                         <NavItem eventKey="jobs">
                             <NavIcon>
                                 <WorkIcon style={{ fontSize: '1.75em', verticalAlign: 'middle' }}></WorkIcon>                            </NavIcon>
                             <NavText style={{ paddingRight: 32 }} title="jobs">
-                                Jobs
+                                {t('header.jobs')}
                             </NavText>
                         </NavItem>
                         <NavItem eventKey="competencies">
                             <NavIcon>
                                 <EngineeringIcon style={{ fontSize: '1.75em', verticalAlign: 'middle' }}></EngineeringIcon>                            </NavIcon>
                             <NavText style={{ paddingRight: 32 }} title="competencies">
-                                Competencies
+                                {t('header.competencies')}
                             </NavText>
                         </NavItem>
                         <NavItem eventKey="contact">
                             <NavIcon>
                                 <ContactsIcon style={{ fontSize: '1.75em', verticalAlign: 'middle' }}></ContactsIcon>                            </NavIcon>
                             <NavText style={{ paddingRight: 32 }} title="contact">
-                                Contact
+                                {t('header.contact')}
                             </NavText>
+                        </NavItem>
+                        <Separator />
+                        <NavItem eventKey="language">
+                            <NavIcon>
+                                <FlagIcon style={{ fontSize: '1.75em', verticalAlign: 'middle' }}></FlagIcon>
+                            </NavIcon>
+                            <NavText style={{ paddingRight: 32 }} title="language">
+                                {t('header.language.language')}
+                            </NavText>
+                            <NavItem eventKey="language/french">
+                                <NavText style={{ paddingRight: 32 }} title="french">
+                                    {t('header.language.french')}
+                                </NavText>
+                            </NavItem>
+                            <NavItem eventKey="language/english">
+                                <NavText style={{ paddingRight: 32 }} title="english">
+                                    {t('header.language.english')}
+                                </NavText>
+                            </NavItem>
                         </NavItem>
                     </Nav>
                 </SideNav>
@@ -125,4 +160,4 @@ class header extends PureComponent {
     }
 }
 
-export default withRouter(header)
+export default compose(withRouter, withTranslate)(header)

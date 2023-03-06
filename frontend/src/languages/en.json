@@ -1,0 +1,55 @@
+{
+    "header": {
+        "home": "Home",
+        "projects": "Projects",
+        "jobs": "Jobs",
+        "competencies": "Competencies",
+        "contact": "Contact",
+        "language": {
+            "language": "Languages",
+            "french": "French",
+            "english": "English"
+        },
+
+        "admin": {
+            "settings": "Settings",
+            "user": "User",
+            "sign-out": "Log Out"
+        }
+    },
+    "user": {
+        "home":  {
+            "title": "Home Page"
+        },
+        "projects":  {
+            "title": "Projects Page"
+        },
+        "jobs":  {
+            "title": "Jobs Page"
+        },
+        "contact":  {
+            "title": "Contact Page"
+        },
+        "competencies":  {
+            "title": "Competencies Page"
+        }
+    },
+    "admin": {
+        "home":  {
+            "title": "Admin Home Page"
+        },
+        "user":  {
+            "title": "Admin User Page"
+        },
+        "jobs":  {
+            "title": "Admin Jobs Page"
+        },
+        "contact":  {
+            "title": "Admin Contact Page"
+        },
+        "competencies":  {
+            "title": "Admin Competencies Page"
+        }
+    }
+    
+}
