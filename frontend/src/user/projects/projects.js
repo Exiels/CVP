@@ -1,3 +1,4 @@
+import {useState, useLayoutEffect} from "react"
 import Header from "../../components/header/user/header"
 import './projects.scss'
 
@@ -7,14 +8,14 @@ export default function Home() {
     useLayoutEffect(() => {
         async function getProjects() {
             try {
-                const response = await fetch("http://localhost:8080/admin/github", {
+                const response = await fetch("http://localhost:8080/administration/github", {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json'
                     }
                 })
                 const data = await response.json();
-                setProjectsList(data)
+                setProjectsList(data.data)
             } catch (error) {
                 console.log(error)
             }
@@ -33,9 +34,10 @@ export default function Home() {
                     {
                         projectsList.map((data, index) =>
                             <div id={"data_" + index}>
-                                <a href={data.html_url} title={data.name} id="title"></a>
-                                <p id="description">data.description</p>
-                                <p id="language" >data.language</p>
+                                <p>Project N°{index}</p>
+                                <a href={data.html_url} title={data.name} id="title">{data.name}</a>
+                                <p id="description">{data.description}</p>
+                                <p id="language" >{data.language}</p>
                             </div>
                         )
                     }
