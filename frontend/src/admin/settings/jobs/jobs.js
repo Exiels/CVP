@@ -2,12 +2,15 @@ import {useEffect, useLayoutEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Header from "../../../components/header/admin/header"
 import Table from 'react-bootstrap/Table';
-import './competencies.scss'
+import './jobs.scss'
 
 export default function Jobs() {
     const [jobsList, setJobsList] = useState([]);
-    const [jobName, setJobName] = useState('');
-    const [jobLevel, setJobLevel] = useState('');
+    const [jobStartDate, setJobStartDate] = useState('');
+    const [jobEndDate, setJobEndDate] = useState('');
+    const [jobPosition, setJobPosition] = useState('');
+    const [jobCompany, setJobCompany] = useState('');
+    const [jobAddress, setJobAddress] = useState('');
     let navigate = useNavigate()
 
     useLayoutEffect(() => {
@@ -54,8 +57,11 @@ export default function Jobs() {
                 'x-auth-token': token
             },
             body: JSON.stringify({
-                name: competenceName,
-                level: competenceLevel
+                startDate: jobStartDate,
+                endDate: jobEndDate,
+                position: jobPosition,
+                company: jobCompany,
+                address: jobAddress
             })
         })
     }
@@ -79,12 +85,24 @@ export default function Jobs() {
         getJobs()
     }, [])
 
-    const changeJobName = (event) => {
-        setJobName(event.target.value)
+    const changeJobStartDate = (event) => {
+        setJobStartDate(event.target.value)
     }
 
-    const changeJobLevel = (event) => {
-        setJobLevel(event.target.value)
+    const changeJobEndDate = (event) => {
+        setJobEndDate(event.target.value)
+    }
+
+    const changeJobPosition = (event) => {
+        setJobPosition(event.target.value)
+    }
+
+    const changeJobCompany = (event) => {
+        setJobCompany(event.target.value)
+    }
+
+    const changeJobAddress = (event) => {
+        setJobAddress(event.target.value)
     }
 
     return (
@@ -98,10 +116,21 @@ export default function Jobs() {
                     <div id="jobsAdderDiv">
                         <form>
                             <div>
-                                <input id="jobsNameInput" type={"text"} placeholder={"jobsName"} onChange={changeJobName} required/>
+                                <label for="jobStartDateInput">Start date: </label>
+                                <input id="jobStartDateInput" type={"date"} placeholder={"jobStartDate"} onChange={changeJobStartDate} required/>
                             </div>
                             <div>
-                                <input id="jobsLevelInput" type={"text"} placeholder={"jobsLevel"} onChange={changeJobLevel} required/>
+                                <label for="jobEndDateInput">End date: </label>
+                                <input id="jobEndDateInput" type={"date"} placeholder={"jobEndDate"} onChange={changeJobEndDate} required/>
+                            </div>
+                            <div>
+                                <input id="jobPositionInput" type={"text"} placeholder={"jobPosition"} onChange={changeJobPosition} required/>
+                            </div>
+                            <div>
+                                <input id="jobCompanyInput" type={"text"} placeholder={"jobCompany"} onChange={changeJobCompany} required/>
+                            </div>
+                            <div>
+                                <input id="jobAddressInput" type={"text"} placeholder={"jobAddress"} onChange={changeJobAddress} required/>
                             </div>
                             <div>
                                 <button onClick={addJob}>
@@ -114,16 +143,22 @@ export default function Jobs() {
                         <Table id="accountTable">
                             <thead id="tableHead">
                             <tr id="topTable">
-                                <th id="valHead1">Name</th>
-                                <th id="valHead2">Level</th>
+                                <th id="valHead1">StartDate</th>
+                                <th id="valHead2">EndDate</th>
+                                <th id="valHead3">Position</th>
+                                <th id="valHead4">Company</th>
+                                <th id="valHead5">Address</th>
                             </tr>
                             </thead>
                             <tbody id="tableBody">
                                 {
                                     jobsList.map((data, index) =>
                                         <tr key={index}>
-                                            <td>{data.name}</td>
-                                            <td>{data.level}</td>
+                                            <td>{data.startDate}</td>
+                                            <td>{data.endDate}</td>
+                                            <td>{data.position}</td>
+                                            <td>{data.company}</td>
+                                            <td>{data.address}</td>
                                             <td><button onClick={() => delJob(data)}>X</button></td>
                                         </tr>
                                     )
