@@ -9,7 +9,7 @@ export default function Home() {
             <div>
                 <Header />
             </div>
-            <div>
+            <div id={"mainDiv"}>
                 <p>Home page</p>
             </div>
         </div>

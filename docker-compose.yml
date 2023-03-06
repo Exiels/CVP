@@ -10,6 +10,7 @@ services:
 
   server:
     build: backend
+    restart: always
     ports:
       - '${EXPRESS_PORT}:${EXPRESS_PORT}'
     depends_on:
