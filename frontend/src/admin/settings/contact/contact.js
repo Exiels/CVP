@@ -98,7 +98,7 @@ export default function Contact() {
                 <Header />
             </div>
             <div id={"mainDiv"}>
-                <p>Admin Jobs page</p>
+                <p>Admin Contact page</p>
                 <div id={"jobsDiv"}>
                     <div id="jobsAdderDiv">
                         <form>
