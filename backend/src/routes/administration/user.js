@@ -4,6 +4,7 @@
  * @namespace user
  */
 const { Users, validateUser } = require('../../models/users')
+const bcrypt = require('bcryptjs');
 
 /**
  * Get user function
@@ -60,10 +61,12 @@ exports.patchUser = async (req, res) => {
     if (users.length === 0 || users === undefined) {
         return res.status(500).json({ message: 'Internal Server Error' })
     } else {
-        users[0].username = req.body.username
-        users[0].password = req.body.password
-
-        await users[0].save()
+        bcrypt.hash(req.body.password, 10).then(async (hash) => {
+            users[0].username = req.body.username
+            users[0].password = hash
+    
+            await users[0].save()
+        })
     }
     return res.status(200).json({ message: "OK"})
   } catch (error) {

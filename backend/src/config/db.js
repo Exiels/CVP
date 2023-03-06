@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const { Users } = require('../models/users')
+const bcrypt = require('bcryptjs');
 const dbConfig = require('./db.config')
 
 // We initialize the db with default users
@@ -10,15 +11,18 @@ async function initDefaultUsers () {
   if (tmp === undefined || tmp.length === 0) {
     console.log('INFO: Init defaultUsers')
 
-    // We create a default admin user
-    const admin = new Users({
-      username: 'admin',
-      email: 'admin@example.com',
-      password: 'admin123'
-    })
+    bcrypt.hash("admin123", 10).then(async (hash) => {
 
-    // Save the user admin
-    await admin.save()
+      // We create a default admin user
+      const admin = new Users({
+        username: 'admin',
+        email: 'admin@example.com',
+        password: hash
+      })
+
+      // Save the user admin
+      await admin.save()
+    })
   }
 }
 
