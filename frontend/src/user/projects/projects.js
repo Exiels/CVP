@@ -2,7 +2,7 @@ import {useState, useLayoutEffect} from "react"
 import Header from "../../components/header/user/header"
 import './projects.scss'
 
-export default function Home() {
+export default function Projects() {
     const [projectsList, setProjectsList] = useState([]);
 
     useLayoutEffect(() => {
