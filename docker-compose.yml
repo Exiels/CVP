@@ -21,6 +21,7 @@ services:
       - DB_PORT=${DB_PORT}
       - EXPRESS_PORT=${EXPRESS_PORT}
       - JWT_SECRET=${JWT_SECRET}
+      - GHTOKEN=${GHTOKEN}
 
 volumes:
   db:
