@@ -34,7 +34,7 @@ export default function Home() {
     }, [])
     
     return (
-        <div>
+        <div id={"adminHome"}>
             <div>
                 <Background />
             </div>
@@ -42,7 +42,7 @@ export default function Home() {
                 <Header />
             </div>
             <div id={"mainDiv"}>
-                <p>{t('admin.home.title')}</p>
+                <h1>{t('admin.home.title')}</h1>
             </div>
         </div>
     )

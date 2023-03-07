@@ -96,7 +96,7 @@ export default function Contact() {
     }
 
     return (
-        <div>
+        <div id={"adminContact"}>
             <div>
                 <Background />
             </div>

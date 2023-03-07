@@ -67,17 +67,21 @@ export default function Login() {
     })
 
     return (
-        <div className="loginPage">
+        <div id="loginPage">
             <div>
                 <Background />
             </div>
-            <div id={"loginDiv"}>
+            
+            <div class={"center"}>
+                <h1>Login</h1>
                 <div id={"loginForm"}>
                     <form>
-                        <div>
+                        <div class="txtField">
+                            <label>Username</label>
                             <input id="userInput" type={"text"} placeholder={"username"} onChange={changeusername} required/>
                         </div>
-                        <div>
+                        <div class="txtField">
+                            <label>Password</label>
                             <input id="passInput" type={"password"} placeholder={"********"} onChange={changepassword} required/>
                         </div>
                     </form>

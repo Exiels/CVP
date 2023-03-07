@@ -27,7 +27,7 @@ export default function Competencies() {
     }, [])
 
     return (
-        <div>
+        <div id={"competencies"}>
             <div>
                 <Background />
             </div>
@@ -35,7 +35,7 @@ export default function Competencies() {
                 <Header />
             </div>
             <div id={"mainDiv"}>
-                <p>{t('user.competencies.title')}</p>
+                <h1>{t('user.competencies.title')}</h1>
                 <div id="competenciesListDiv">
                     {
                         competenciesList.map((data, index) =>

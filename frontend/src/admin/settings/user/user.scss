@@ -1,12 +1,20 @@
-#mainDiv {
-    position: absolute;
-    left: 70px;
-    
-    label {
-        color: #fff;
-    }
-    
-    p {
-        color: #fff;
+#adminUser {
+    #mainDiv {
+        position: absolute;
+        left: 80px;
+
+        label {
+            color: #fff;
+        }
+        
+        p {
+            color: #fff;
+        }
+
+        h1 {
+            color: #fff;
+            font-family: "Poppins";
+            font-weight: 600;
+        }
     }
 }

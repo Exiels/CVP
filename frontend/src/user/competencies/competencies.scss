@@ -1,12 +1,20 @@
-#mainDiv {
-    position: absolute;
-    left: 70px;
+#competencies {
+    #mainDiv {
+        position: absolute;
+        left: 80px;
 
-    label {
-        color: #fff;
-    }
-    
-    p {
-        color: #fff;
+        label {
+            color: #fff;
+        }
+        
+        p {
+            color: #fff;
+        }
+
+        h1 {
+            color: #fff;
+            font-family: "Poppins";
+            font-weight: 600;
+        }
     }
 }

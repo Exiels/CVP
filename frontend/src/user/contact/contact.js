@@ -31,7 +31,7 @@ export default function Contact() {
     }, [])
 
     return (
-        <div>
+        <div id={"contact"}>
             <div>
                 <Background />
             </div>
@@ -39,7 +39,7 @@ export default function Contact() {
                 <Header />
             </div>
             <div id={"mainDiv"}>
-                <p>{t('user.contact.title')}</p>
+                <h1>{t('user.contact.title')}</h1>
                 <div id="contactDiv">
                     <p>{contactFirstName} {contactLastName}</p>
                     <p>Address: {contactAddress}</p>

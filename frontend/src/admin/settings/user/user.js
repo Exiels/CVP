@@ -74,7 +74,7 @@ export default function User() {
     }
 
     return (
-        <div>
+        <div id={"adminUser"}>
             <div>
                 <Background />
             </div>
@@ -82,7 +82,7 @@ export default function User() {
                 <Header />
             </div>
             <div id={"mainDiv"}>
-                <p>{t('admin.user.title')}</p>
+                <h1>{t('admin.user.title')}</h1>
                 <div id={"jobsDiv"}>
                     <div id="jobsAdderDiv">
                         <form>

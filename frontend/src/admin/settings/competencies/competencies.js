@@ -92,7 +92,7 @@ export default function Home() {
     }
 
     return (
-        <div>
+        <div id={"adminCompetencies"}>
             <div>
                 <Background />
             </div>
@@ -100,7 +100,7 @@ export default function Home() {
                 <Header />
             </div>
             <div id={"mainDiv"}>
-                <p>{t('admin.competencies.title')}</p>
+                <h1>{t('admin.competencies.title')}</h1>
                 <div id={"competenciesDiv"}>
                     <div id="competenciesAdderDiv">
                         <form>

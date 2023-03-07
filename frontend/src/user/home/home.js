@@ -1,12 +1,13 @@
 import { useTranslation } from 'react-multi-lang'
 import Header from "../../components/header/user/header"
 import Background from "../../components/background/background"
+import "@fontsource/poppins";
 import './home.scss'
 
 export default function Home() {
     const t = useTranslation()
     return (
-        <div>
+        <div id={"home"}>
             <div>
                 <Background />
             </div>
@@ -14,7 +15,7 @@ export default function Home() {
                 <Header />
             </div>
             <div id={"mainDiv"}>
-                <p>{t('user.home.title')}</p>
+                <h1>{t('user.home.title')}</h1>
             </div>
         </div>
     )

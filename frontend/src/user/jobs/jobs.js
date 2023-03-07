@@ -27,7 +27,7 @@ export default function Jobs() {
     }, [])
 
     return (
-        <div>
+        <div id={"jobs"}>
             <div>
                 <Background />
             </div>
@@ -35,7 +35,7 @@ export default function Jobs() {
                 <Header />
             </div>
             <div id={"mainDiv"}>
-                <p>{t('user.jobs.title')}</p>
+                <h1>{t('user.jobs.title')}</h1>
                 <div id="jobsListDiv">
                     {
                         jobsList.map((data, index) =>

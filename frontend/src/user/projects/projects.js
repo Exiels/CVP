@@ -27,7 +27,7 @@ export default function Projects() {
     }, [])
 
     return (
-        <div>
+        <div id={"projects"}>
             <div>
                 <Background />
             </div>
@@ -35,7 +35,7 @@ export default function Projects() {
                 <Header />
             </div>
             <div id={"mainDiv"}>
-                <p>{t('user.projects.title')}</p>
+                <h1>{t('user.projects.title')}</h1>
                 <div id="projectListDiv">
                     {
                         projectsList.map((data, index) =>

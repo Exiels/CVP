@@ -109,7 +109,7 @@ export default function Jobs() {
     }
 
     return (
-        <div>
+        <div id={"adminJobs"}>
             <div>
                 <Background />
             </div>
@@ -117,7 +117,7 @@ export default function Jobs() {
                 <Header />
             </div>
             <div id={"mainDiv"}>
-                <p>{t('admin.jobs.title')}</p>
+                <h1>{t('admin.jobs.title')}</h1>
                 <div id={"jobsDiv"}>
                     <div id="jobsAdderDiv">
                         <form>
