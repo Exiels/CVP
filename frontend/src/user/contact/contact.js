@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-multi-lang'
 import {useState, useLayoutEffect} from "react"
 import Header from "../../components/header/user/header"
+import Background from "../../components/background/background"
 import './contact.scss'
 
 export default function Contact() {
@@ -31,6 +32,9 @@ export default function Contact() {
 
     return (
         <div>
+            <div>
+                <Background />
+            </div>
             <div>
                 <Header />
             </div>

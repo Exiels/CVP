@@ -20,9 +20,11 @@
     "react-multi-lang": "^2.2.0",
     "react-router-dom": "^6.8.2",
     "react-scripts": "5.0.1",
+    "react-tsparticles": "^2.9.3",
     "redux": "^4.2.1",
     "sass": "^1.58.3",
     "styled-components": "^5.3.6",
+    "tsparticles": "^2.9.3",
     "web-vitals": "^3.1.1"
   },
   "scripts": {

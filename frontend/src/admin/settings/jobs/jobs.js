@@ -2,6 +2,7 @@ import { useTranslation } from 'react-multi-lang'
 import {useEffect, useLayoutEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Header from "../../../components/header/admin/header"
+import Background from "../../../components/background/background"
 import Table from 'react-bootstrap/Table';
 import './jobs.scss'
 
@@ -109,6 +110,9 @@ export default function Jobs() {
 
     return (
         <div>
+            <div>
+                <Background />
+            </div>
             <div>
                 <Header />
             </div>

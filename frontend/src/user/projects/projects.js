@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-multi-lang'
 import {useState, useLayoutEffect} from "react"
 import Header from "../../components/header/user/header"
+import Background from "../../components/background/background"
 import './projects.scss'
 
 export default function Projects() {
@@ -27,6 +28,9 @@ export default function Projects() {
 
     return (
         <div>
+            <div>
+                <Background />
+            </div>
             <div>
                 <Header />
             </div>

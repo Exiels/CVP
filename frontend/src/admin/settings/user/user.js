@@ -2,6 +2,7 @@ import { useTranslation } from 'react-multi-lang'
 import {useEffect, useLayoutEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Header from "../../../components/header/admin/header"
+import Background from "../../../components/background/background"
 import './user.scss'
 
 export default function User() {
@@ -74,6 +75,9 @@ export default function User() {
 
     return (
         <div>
+            <div>
+                <Background />
+            </div>
             <div>
                 <Header />
             </div>

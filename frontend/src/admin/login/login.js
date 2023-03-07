@@ -1,5 +1,6 @@
 import {useState, useLayoutEffect, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import Background from "../../components/background/background"
 import './login.scss'
 
 export default function Login() {
@@ -67,6 +68,9 @@ export default function Login() {
 
     return (
         <div className="loginPage">
+            <div>
+                <Background />
+            </div>
             <div id={"loginDiv"}>
                 <div id={"loginForm"}>
                     <form>

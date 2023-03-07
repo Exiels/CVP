@@ -2,6 +2,7 @@ import {useLayoutEffect} from "react"
 import { useNavigate } from "react-router-dom"
 import { useTranslation } from 'react-multi-lang'
 import Header from "../../components/header/admin/header"
+import Background from "../../components/background/background"
 import './home.scss'
 
 export default function Home() {
@@ -34,6 +35,9 @@ export default function Home() {
     
     return (
         <div>
+            <div>
+                <Background />
+            </div>
             <div>
                 <Header />
             </div>
