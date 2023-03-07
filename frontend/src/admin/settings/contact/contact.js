@@ -109,28 +109,28 @@ export default function Contact() {
                     <div id="jobsAdderDiv">
                         <form>
                             <div>
-                                <label for="jobStartDateInput">First Name: </label>
+                                <label for="contactFirstNameInput">{t('admin.contact.firstname')}: </label>
                                 <input id="contactFirstNameInput" type={"text"} placeholder={"contactFirstName"} value={contactFirstName} onChange={changeContactFirstName} required/>
                             </div>
                             <div>
-                                <label for="jobStartDateInput">Last Name: </label>
+                                <label for="contactLastNameInput">{t('admin.contact.lastname')}: </label>
                                 <input id="contactLastNameInput" type={"text"} placeholder={"contactLastName"} value={contactLastName} onChange={changeContactLastName} required/>
                             </div>
                             <div>
-                                <label for="jobStartDateInput">Address: </label>
+                                <label for="contactAddressInput">{t('admin.contact.address')}: </label>
                                 <input id="contactAddressInput" type={"text"} placeholder={"contactAddress"} value={contactAddress} onChange={changeContactAddress} required/>
                             </div>
                             <div>
-                                <label for="jobStartDateInput">Phone: </label>
+                                <label for="contactPhoneInput">{t('admin.contact.phone')}: </label>
                                 <input id="contactPhoneInput" type={"text"} placeholder={"contactPhone"} value={contactPhone} onChange={changeContactPhone} required/>
                             </div>
                             <div>
-                                <label for="jobStartDateInput">Email: </label>
+                                <label for="contactEmailInput">{t('admin.contact.email')}: </label>
                                 <input id="contactEmailInput" type={"text"} placeholder={"contactEmail"} value={contactEmail} onChange={changeContactEmail} required/>
                             </div>
                             <div>
                                 <button onClick={patchContact}>
-                                    Modify
+                                    {t('admin.contact.modify')}
                                 </button>
                             </div>
                         </form>

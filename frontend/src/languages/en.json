@@ -22,16 +22,22 @@
             "title": "Home Page"
         },
         "projects":  {
-            "title": "Projects Page"
+            "title": "Projects Page",
+            "project": "Project"
         },
         "jobs":  {
-            "title": "Jobs Page"
+            "title": "Jobs Page",
+            "job": "Job"
         },
         "contact":  {
-            "title": "Contact Page"
+            "title": "Contact Page",
+            "address": "Address",
+            "phone": "Phone Number",
+            "email": "Email"
         },
         "competencies":  {
-            "title": "Competencies Page"
+            "title": "Competencies Page",
+            "competence": "Competence"
         }
     },
     "admin": {
@@ -39,16 +45,34 @@
             "title": "Admin Home Page"
         },
         "user":  {
-            "title": "Admin User Page"
+            "title": "Admin User Page",
+            "username": "Username",
+            "password": "Password",
+            "modify": "Modify"
         },
         "jobs":  {
-            "title": "Admin Jobs Page"
+            "title": "Admin Jobs Page",
+            "startdate": "Start Date",
+            "enddate": "End Date",
+            "submit": "Submit",
+            "position": "Position",
+            "company": "Company",
+            "address": "Address"
         },
         "contact":  {
-            "title": "Admin Contact Page"
+            "title": "Admin Contact Page",
+            "firstname": "First Name",
+            "lastname": "Last Name",
+            "address": "Address",
+            "phone": "Phone",
+            "email": "Email",
+            "modify": "Modify"
         },
         "competencies":  {
-            "title": "Admin Competencies Page"
+            "title": "Admin Competencies Page",
+            "name": "Name",
+            "level": "level",
+            "submit": "Submit"
         }
     }
     

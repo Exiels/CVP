@@ -39,12 +39,11 @@ export default function Jobs() {
                 <div id="jobsListDiv">
                     {
                         jobsList.map((data, index) =>
-                            <div id={"data_" + index}>
-                                <p>Job N°{index}</p>
+                            <div id={"data"}>
+                                <p>{t('user.jobs.job')} N°{index}</p>
                                 <h3 id="position" >{data.position}</h3>
                                 <p id="startDate">{data.startDate}</p>
                                 <p id="endDate" >{data.endDate}</p>
-                                <p id="position" >{data.position}</p>
                                 <p id="company" >{data.company}</p>
                                 <p id="address" >{data.address}</p>
                             </div>

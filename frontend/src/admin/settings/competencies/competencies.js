@@ -112,7 +112,7 @@ export default function Home() {
                             </div>
                             <div>
                                 <button onClick={addCompetencies}>
-                                    Submit
+                                    {t('admin.competencies.submit')}
                                 </button>
                             </div>
                         </form>
@@ -121,8 +121,8 @@ export default function Home() {
                         <Table id="accountTable">
                             <thead id="tableHead">
                             <tr id="topTable">
-                                <th id="valHead1">Name</th>
-                                <th id="valHead2">Level</th>
+                                <th id="valHead1">{t('admin.competencies.name')}</th>
+                                <th id="valHead2">{t('admin.competencies.level')}</th>
                             </tr>
                             </thead>
                             <tbody id="tableBody">

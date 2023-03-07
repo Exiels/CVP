@@ -39,8 +39,8 @@ export default function Competencies() {
                 <div id="competenciesListDiv">
                     {
                         competenciesList.map((data, index) =>
-                            <div id={"data_" + index}>
-                                <p>Competence N°{index}</p>
+                            <div id={"data"}>
+                                <p>{t('user.competencies.competence')} N°{index}</p>
                                 <p id="name">{data.name}</p>
                                 <p id="level" >{data.level}</p>
                             </div>

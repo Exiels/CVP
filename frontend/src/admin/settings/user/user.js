@@ -87,16 +87,16 @@ export default function User() {
                     <div id="jobsAdderDiv">
                         <form>
                             <div>
-                                <label for="userUsernameInput">Username: </label>
+                                <label for="userUsernameInput">{t('admin.user.username')}: </label>
                                 <input id="userUsernameInput" type={"text"} placeholder={"userUsername"} value={userUsername} onChange={changeUserUsername} required/>
                             </div>
                             <div>
-                                <label for="userPasswordInput">Password: </label>
+                                <label for="userPasswordInput">{t('admin.user.password')}: </label>
                                 <input id="userPasswordInput" type={"password"} placeholder={"userPassword"} value={userPassword} onChange={changerUserPassword} required/>
                             </div>
                             <div>
                                 <button onClick={patchContact}>
-                                    Modify
+                                    {t('admin.user.modify')}
                                 </button>
                             </div>
                         </form>

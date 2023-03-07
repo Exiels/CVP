@@ -42,9 +42,9 @@ export default function Contact() {
                 <h1>{t('user.contact.title')}</h1>
                 <div id="contactDiv">
                     <p>{contactFirstName} {contactLastName}</p>
-                    <p>Address: {contactAddress}</p>
-                    <p>Phone Number: {contactPhone}</p>
-                    <p>Email: {contactEmail}</p>
+                    <p>{t('user.contact.address')}: {contactAddress}</p>
+                    <p>{t('user.contact.phone')}: {contactPhone}</p>
+                    <p>{t('user.contact.email')}: {contactEmail}</p>
                 </div>
             </div>
         </div>

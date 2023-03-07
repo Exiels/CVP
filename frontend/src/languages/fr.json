@@ -22,16 +22,22 @@
             "title": "Page d'Accueil"
         },
         "projects":  {
-            "title": "Page des Projets"
+            "title": "Page des Projets",
+            "project": "Projet"
         },
         "jobs":  {
-            "title": "Page des Emplois"
+            "title": "Page des Emplois",
+            "job": "Travail"
         },
         "contact":  {
-            "title": "Page des informations de Contact"
+            "title": "Page des informations de Contact",
+            "address": "Adresse",
+            "phone": "Numéro de Téléphone",
+            "email": "Email"
         },
         "competencies":  {
-            "title": "Page des Compétences"
+            "title": "Page des Compétences",
+            "competence": "Compétence"
         }
     },
     "admin": {
@@ -39,16 +45,34 @@
             "title": "Page d'Accueil Admin"
         },
         "user":  {
-            "title": "Page Utilisateur Admin"
+            "title": "Page Utilisateur Admin",
+            "username": "Nom d'Utilisateur",
+            "password": "Mot de Passe",
+            "modify": "Modifier"
         },
         "jobs":  {
-            "title": "Page des Emplois Admin"
+            "title": "Page des Emplois Admin",
+            "startdate": "Date de début",
+            "enddate": "Date de fin",
+            "submit": "Envoyer",
+            "position": "Position",
+            "company": "Entreprise",
+            "address": "Adresse"
         },
         "contact":  {
-            "title": "Page des informations de Contact Admin"
+            "title": "Page des informations de Contact Admin",
+            "firstname": "Prénom",
+            "lastname": "Nom",
+            "address": "Adresse",
+            "phone": "Numéro de Téléphone",
+            "email": "Email",
+            "modify": "Modifier"
         },
         "competencies":  {
-            "title": "Page des Compétences Admin"
+            "title": "Page des Compétences Admin",
+            "name": "Nom",
+            "level": "Niveau",
+            "submit": "Envoyer"
         }
     }
 }

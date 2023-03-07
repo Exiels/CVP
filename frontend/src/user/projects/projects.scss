@@ -16,5 +16,17 @@
             font-family: "Poppins";
             font-weight: 600;
         }
+
+        #data {
+            background-color: #fff;
+            border-radius: 15px;
+            align-items: center;
+
+            p {
+                align-items: center;
+                color: black;
+                text-align: center;
+            }
+        }
     }
 }

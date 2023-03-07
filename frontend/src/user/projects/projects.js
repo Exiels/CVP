@@ -39,8 +39,8 @@ export default function Projects() {
                 <div id="projectListDiv">
                     {
                         projectsList.map((data, index) =>
-                            <div id={"data_" + index}>
-                                <p>Project N°{index}</p>
+                            <div id={"data"}>
+                                <p>{t('user.projects.project')} N°{index}</p>
                                 <a href={data.html_url} title={data.name} id="title">{data.name}</a>
                                 <p id="description">{data.description}</p>
                                 <p id="language" >{data.language}</p>

@@ -122,11 +122,11 @@ export default function Jobs() {
                     <div id="jobsAdderDiv">
                         <form>
                             <div>
-                                <label for="jobStartDateInput">Start date: </label>
+                                <label for="jobStartDateInput">{t('admin.jobs.startdate')}: </label>
                                 <input id="jobStartDateInput" type={"date"} placeholder={"jobStartDate"} onChange={changeJobStartDate} required/>
                             </div>
                             <div>
-                                <label for="jobEndDateInput">End date: </label>
+                                <label for="jobEndDateInput">{t('admin.jobs.enddate')}: </label>
                                 <input id="jobEndDateInput" type={"date"} placeholder={"jobEndDate"} onChange={changeJobEndDate} required/>
                             </div>
                             <div>
@@ -140,7 +140,7 @@ export default function Jobs() {
                             </div>
                             <div>
                                 <button onClick={addJob}>
-                                    Submit
+                                    {t('admin.jobs.submit')}
                                 </button>
                             </div>
                         </form>
@@ -149,11 +149,11 @@ export default function Jobs() {
                         <Table id="accountTable">
                             <thead id="tableHead">
                             <tr id="topTable">
-                                <th id="valHead1">StartDate</th>
-                                <th id="valHead2">EndDate</th>
-                                <th id="valHead3">Position</th>
-                                <th id="valHead4">Company</th>
-                                <th id="valHead5">Address</th>
+                                <th id="valHead1">{t('admin.jobs.startdate')}</th>
+                                <th id="valHead2">{t('admin.jobs.enddate')}</th>
+                                <th id="valHead3">{t('admin.jobs.position')}</th>
+                                <th id="valHead4">{t('admin.jobs.company')}</th>
+                                <th id="valHead5">{t('admin.jobs.address')}</th>
                             </tr>
                             </thead>
                             <tbody id="tableBody">
